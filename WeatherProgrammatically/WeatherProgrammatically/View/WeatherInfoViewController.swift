@@ -95,6 +95,7 @@ class WeatherInfoViewController: UIViewController {
             DispatchQueue.main.async {
                 self.currentTemperatureLabel.text = (String(weather.main.temp.kelvinToCelciusConverter()) + "°C")
                 self.tempDescription.text = weather.weather[0].description
+                self.currentTime.text = stringDate
 
                 UserDefaults.standard.set("\(weather.name ?? "")", forKey: "SelectedCity")
             }
