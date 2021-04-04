@@ -46,7 +46,7 @@ Run:
 
 ![Screen Shot 2021-04-04 at 11 17 45 AM](https://user-images.githubusercontent.com/45300300/113513370-6975cd80-9537-11eb-93cc-fa9dfa9008f2.png)
 
-*Forecast View*
+*Forecast View (Not done yet)*
 
 ![Screen Shot 2021-04-04 at 11 38 52 AM](https://user-images.githubusercontent.com/45300300/113514025-5a444f00-953a-11eb-9293-c1ca1e84d2e5.png)
 
