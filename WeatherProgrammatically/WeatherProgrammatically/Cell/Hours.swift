@@ -87,11 +87,5 @@ class HourlyCell: UICollectionViewCell {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
 
-        if let date = dateFormatterGet.date(from: item.time) {
-            hourlyTimeLabel.text = dateFormatter.string(from: date)
-        }
-//
-//        tempSymbol.loadImageFromURL(url: "http://openweathermap.org/img/wn/\(item.icon)@2x.png")
-//        tempLabel.text = String(item.temp.kelvinToCeliusConverter()) + " °C"
     }
 }

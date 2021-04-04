@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1486128B2619F54900035B4F /* IncrementExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1486128A2619F54900035B4F /* IncrementExtension.swift */; };
 		148B009B26195D2700F25914 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148B009A26195D2700F25914 /* AppDelegate.swift */; };
 		148B009D26195D2700F25914 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148B009C26195D2700F25914 /* SceneDelegate.swift */; };
 		148B009F26195D2700F25914 /* WeatherInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148B009E26195D2700F25914 /* WeatherInfoViewController.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1486128A2619F54900035B4F /* IncrementExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncrementExtension.swift; sourceTree = "<group>"; };
 		148B009726195D2700F25914 /* WeatherProgrammatically.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherProgrammatically.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		148B009A26195D2700F25914 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		148B009C26195D2700F25914 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				148B00C62619743800F25914 /* KelvinToCelciusConverter.swift */,
+				1486128A2619F54900035B4F /* IncrementExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1486128B2619F54900035B4F /* IncrementExtension.swift in Sources */,
 				148B00D2261980B200F25914 /* ForecastCell.swift in Sources */,
 				148B009F26195D2700F25914 /* WeatherInfoViewController.swift in Sources */,
 				148B00B526195E1D00F25914 /* NetworkingProtocol.swift in Sources */,

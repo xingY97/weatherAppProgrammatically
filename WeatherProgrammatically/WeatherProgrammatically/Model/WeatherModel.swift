@@ -23,6 +23,7 @@ struct WeatherModel: Codable {
     let main: Main
     let name: String?
     let dt: Int
+    let dt_txt: String?
 }
 
 struct ForecastModel: Codable {

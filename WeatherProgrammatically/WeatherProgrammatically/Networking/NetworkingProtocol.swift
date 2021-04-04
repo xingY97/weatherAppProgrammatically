@@ -11,5 +11,5 @@ import UIKit
 protocol NetworkingProtocol {
     func fetchCurrentWeather(city: String, completion: @escaping (WeatherModel) -> ())
     
-    //func fetchNextFiveWeatherForecast(city: String, completion: @escaping ([ForecastTemperature]) -> ())
+    func fetchNextFiveWeatherForecast(city: String, completion: @escaping ([ForecastTemperature]) -> ())
 }

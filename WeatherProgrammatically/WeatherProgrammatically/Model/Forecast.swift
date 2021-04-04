@@ -12,10 +12,10 @@ struct WeatherInfo {
     let temp: Float
     let description: String
     let icon: String
-    let time: String
+   
 }
 
 struct ForecastTemperature {
     let weekDay: String?
-    let hourlyForecast: [WeatherInfo]?
+    //let hourlyForecast: [WeatherInfo]?
 }

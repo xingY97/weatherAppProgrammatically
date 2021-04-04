@@ -104,7 +104,7 @@ class ForecastCell: UICollectionViewCell, UICollectionViewDelegate, UICollection
     
     func configure(with item: ForecastTemperature) {
         weekdaylabel.text = item.weekDay
-        dailyForecast = item.hourlyForecast ?? []
+        //dailyForecast = item.hourlyForecast ?? []
     }
 
 }
