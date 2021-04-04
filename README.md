@@ -18,7 +18,12 @@ Run:
 * Swift
 * https://openweathermap.org/api
 
+<h4>How to Use</h4>
+
+* press or click on magnifying glass on the top right corner 
+* Enter a city Name in alert box
+* press or click Search
+
+
 *Main View*
-
-
 ![Screen Shot 2021-04-04 at 11 17 45 AM](https://user-images.githubusercontent.com/45300300/113513370-6975cd80-9537-11eb-93cc-fa9dfa9008f2.png)
