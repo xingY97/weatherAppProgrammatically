@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class WeatherInfoViewController: UIViewController {
     
     let networkManager = NetworkingManager()
     
@@ -79,13 +79,27 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         view.backgroundColor = .systemBackground
-
+        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName: "plus.circle"), style: .done, target: self, action: #selector(handleAddPlaceButton)), UIBarButtonItem(image: UIImage(systemName: "arrow.clockwise"), style: .done, target: self, action: #selector(handleRefresh))]
         
         setupViews()
         layoutViews()
     }
     
+    func loadData(city: String) {
+        networkManager.fetchCurrentWeather(city: city) { (weather) in
+            print("Current Temperature", weather.main.temp.kelvinToCelciusConverter())
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd MMM yyyy" //yyyy
+            let stringDate = formatter.string(from: Date(timeIntervalSince1970: TimeInterval(weather.dt)))
+            
+            DispatchQueue.main.async {
+                self.currentTemperatureLabel.text = (String(weather.main.temp.kelvinToCelciusConverter()) + "°C")
+                self.tempDescription.text = weather.weather[0].description
 
+                UserDefaults.standard.set("\(weather.name ?? "")", forKey: "SelectedCity")
+            }
+        }
+    }
     
     func setupViews() {
         view.addSubview(currentLocation)
@@ -116,10 +130,10 @@ class ViewController: UIViewController {
         tempSymbol.heightAnchor.constraint(equalToConstant: 50).isActive = true
         tempSymbol.widthAnchor.constraint(equalToConstant: 50).isActive = true
         
-//        searchField.topAnchor.constraint(equalTo: currentLocation.bottomAnchor, constant: 50).isActive = true
-//        searchField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 1).isActive = true
-//        searchField.heightAnchor.constraint(equalToConstant: 20).isActive = true
-//        searchField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -18).isActive = true
+        //        searchField.topAnchor.constraint(equalTo: currentLocation.bottomAnchor, constant: 50).isActive = true
+        //        searchField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 1).isActive = true
+        //        searchField.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        //        searchField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -18).isActive = true
         
         tempDescription.topAnchor.constraint(equalTo: currentTemperatureLabel.bottomAnchor, constant: 12.5).isActive = true
         tempDescription.leadingAnchor.constraint(equalTo: tempSymbol.trailingAnchor, constant: 8).isActive = true
@@ -127,7 +141,39 @@ class ViewController: UIViewController {
         tempDescription.widthAnchor.constraint(equalToConstant: 250).isActive = true
         
     }
-
+    
+    //MARK: - Handlers
+    @objc func handleAddPlaceButton() {
+        let alertController = UIAlertController(title: "Add City", message: "", preferredStyle: .alert)
+        alertController.addTextField { (textField : UITextField!) -> Void in
+            textField.placeholder = "City Name"
+        }
+        let saveAction = UIAlertAction(title: "Add", style: .default, handler: { alert -> Void in
+            let firstTextField = alertController.textFields![0] as UITextField
+            print("City Name: \(firstTextField.text)")
+            guard let cityname = firstTextField.text else { return }
+            self.loadData(city: cityname)
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: { (action : UIAlertAction!) -> Void in
+            print("Cancel")
+        })
+        
+        
+        alertController.addAction(saveAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    //    @objc func handleShowForecast() {
+    //        self.navigationController?.pushViewController(WeatherInfoViewController(), animated: true)
+    //    }
+    
+    @objc func handleRefresh() {
+        let city = UserDefaults.standard.string(forKey: "SelectedCity") ?? ""
+        loadData(city: city)
+    }
+    
     
 }
 
