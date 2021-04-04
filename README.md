@@ -21,15 +21,13 @@ Run:
 <h4>How to Use</h4>
 
 * Press or click on magnifying glass on the top right corner 
-![1617550042889](https://user-images.githubusercontent.com/45300300/113513750-27e62200-9539-11eb-86b7-fa67a5b4aceb.jpg)
+![Screen Shot 2021-04-04 at 11 33 35 AM](https://user-images.githubusercontent.com/45300300/113513865-a216a680-9539-11eb-878d-67bfd6661f0a.png)
+
 
 
 * Enter a city Name in alert box
-
-![Screen Shot 2021-04-04 at 11 30 59 AM](https://user-images.githubusercontent.com/45300300/113513787-451af080-9539-11eb-88f8-1ca2cbdb5c5a.png)
-
 * Press or click Search
-
+![Screen Shot 2021-04-04 at 11 30 59 AM](https://user-images.githubusercontent.com/45300300/113513787-451af080-9539-11eb-88f8-1ca2cbdb5c5a.png)
 
 
 
