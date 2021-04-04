@@ -29,8 +29,23 @@ Run:
 * Press or click Search
 ![Screen Shot 2021-04-04 at 11 30 59 AM](https://user-images.githubusercontent.com/45300300/113513787-451af080-9539-11eb-88f8-1ca2cbdb5c5a.png)
 
+*Features*
+
+* Refreshes current Temperature
+
+![Screen Shot 2021-04-04 at 11 37 32 AM](https://user-images.githubusercontent.com/45300300/113513997-2ec16480-953a-11eb-8605-0e4a1186acec.png)
+
+* Show Weather data for the next five days (Not done yet) 
+
+![Screen Shot 2021-04-04 at 11 38 05 AM](https://user-images.githubusercontent.com/45300300/113514007-3da81700-953a-11eb-8fe3-889983826c1b.png)
 
 
 *Main View*
 
 ![Screen Shot 2021-04-04 at 11 17 45 AM](https://user-images.githubusercontent.com/45300300/113513370-6975cd80-9537-11eb-93cc-fa9dfa9008f2.png)
+
+*Forecast View*
+
+![Screen Shot 2021-04-04 at 11 38 52 AM](https://user-images.githubusercontent.com/45300300/113514025-5a444f00-953a-11eb-9293-c1ca1e84d2e5.png)
+
+
