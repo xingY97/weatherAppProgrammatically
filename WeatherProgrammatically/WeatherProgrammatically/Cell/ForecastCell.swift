@@ -20,12 +20,6 @@ class ForecastCell: UICollectionViewCell, UICollectionViewDelegate {
         return label
     }()
     
-    let tempSymbol: UIImageView = {
-       let img = UIImageView()
-        img.contentMode = .scaleAspectFit
-        img.translatesAutoresizingMaskIntoConstraints = false
-        return img
-    }()
     
     
     var dailyForecast: [WeatherInfo] = []
@@ -50,7 +44,6 @@ class ForecastCell: UICollectionViewCell, UICollectionViewDelegate {
     
     func setupViews() {
         addSubview(weekdaylabel)
-        addSubview(tempSymbol)
     }
     
     func layoutViews() {

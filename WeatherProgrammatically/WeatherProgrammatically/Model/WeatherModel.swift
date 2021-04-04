@@ -35,3 +35,15 @@ struct City: Codable {
     let name: String?
 }
 
+struct WeatherInfo {
+    let temp: Float
+    let description: String
+    let icon: String
+   
+}
+
+struct ForecastTemperature {
+    let weekDay: String?
+    
+}
+

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WeatherInfoViewController: UIViewController {
+class WeatherInfoViewController: UIViewController, UITextFieldDelegate {
     
     let networkManager = NetworkingManager()
     var collectionView: UICollectionView!
@@ -48,7 +48,7 @@ class WeatherInfoViewController: UIViewController {
     let tempDescription: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "..."
+        label.text = "Weather Description"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.textColor = .label
@@ -64,6 +64,8 @@ class WeatherInfoViewController: UIViewController {
         img.tintColor = .gray
         return img
     }()
+    
+    
     
     var stackView : UIStackView!
     
@@ -145,7 +147,7 @@ class WeatherInfoViewController: UIViewController {
         }
         let saveAction = UIAlertAction(title: "Search", style: .default, handler: { alert -> Void in
             let firstTextField = alertController.textFields![0] as UITextField
-            //print("City Name: \(firstTextField.text)")
+           
             guard let cityname = firstTextField.text else { return }
             self.loadData(city: cityname)
         })
