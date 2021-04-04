@@ -10,6 +10,8 @@ import UIKit
 class WeatherInfoViewController: UIViewController {
     
     let networkManager = NetworkingManager()
+    var collectionView: UICollectionView!
+    var forecastData: [ForecastTemperature] = []
     
     let currentLocation: UILabel = {
         let label = UILabel()
@@ -79,7 +81,11 @@ class WeatherInfoViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         view.backgroundColor = .systemBackground
-        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName: "plus.circle"), style: .done, target: self, action: #selector(handleAddPlaceButton)), UIBarButtonItem(image: UIImage(systemName: "arrow.clockwise"), style: .done, target: self, action: #selector(handleRefresh))]
+       
+        
+        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName: "magnifyingglass.circle"), style: .done, target: self, action:
+                                                                    #selector(handleSearchButton)), UIBarButtonItem(image: UIImage(systemName: "sunrise.fill"), style: .done, target: self, action:
+                                                                                                                        #selector(handleShowForecast)),UIBarButtonItem(image: UIImage(systemName: "arrow.clockwise.circle"), style: .done, target: self, action: #selector(handleRefresh))]
         
         setupViews()
         layoutViews()
@@ -97,7 +103,7 @@ class WeatherInfoViewController: UIViewController {
                 self.currentLocation.text = "\(weather.name ?? "")"
                 self.tempDescription.text = weather.weather[0].description
                 self.currentTime.text = stringDate
-
+                
                 UserDefaults.standard.set("\(weather.name ?? "")", forKey: "SelectedCity")
             }
         }
@@ -109,6 +115,7 @@ class WeatherInfoViewController: UIViewController {
         view.addSubview(tempSymbol)
         view.addSubview(tempDescription)
         view.addSubview(currentTime)
+
     }
     
     func layoutViews() {
@@ -132,11 +139,6 @@ class WeatherInfoViewController: UIViewController {
         tempSymbol.heightAnchor.constraint(equalToConstant: 50).isActive = true
         tempSymbol.widthAnchor.constraint(equalToConstant: 50).isActive = true
         
-        //        searchField.topAnchor.constraint(equalTo: currentLocation.bottomAnchor, constant: 50).isActive = true
-        //        searchField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 1).isActive = true
-        //        searchField.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        //        searchField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -18).isActive = true
-        
         tempDescription.topAnchor.constraint(equalTo: currentTemperatureLabel.bottomAnchor, constant: 12.5).isActive = true
         tempDescription.leadingAnchor.constraint(equalTo: tempSymbol.trailingAnchor, constant: 8).isActive = true
         tempDescription.heightAnchor.constraint(equalToConstant: 20).isActive = true
@@ -145,14 +147,14 @@ class WeatherInfoViewController: UIViewController {
     }
     
     //MARK: - Handlers
-    @objc func handleAddPlaceButton() {
-        let alertController = UIAlertController(title: "Add City", message: "", preferredStyle: .alert)
+    @objc func handleSearchButton() {
+        let alertController = UIAlertController(title: "Enter a city", message: "", preferredStyle: .alert)
         alertController.addTextField { (textField : UITextField!) -> Void in
             textField.placeholder = "City Name"
         }
-        let saveAction = UIAlertAction(title: "Add", style: .default, handler: { alert -> Void in
+        let saveAction = UIAlertAction(title: "Search", style: .default, handler: { alert -> Void in
             let firstTextField = alertController.textFields![0] as UITextField
-            print("City Name: \(firstTextField.text)")
+            //print("City Name: \(firstTextField.text)")
             guard let cityname = firstTextField.text else { return }
             self.loadData(city: cityname)
         })
@@ -167,15 +169,17 @@ class WeatherInfoViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    //    @objc func handleShowForecast() {
-    //        self.navigationController?.pushViewController(WeatherInfoViewController(), animated: true)
-    //    }
+    @objc func handleShowForecast() {
+        self.navigationController?.pushViewController(ForecastViewController(), animated: true)
+        
+    }
     
     @objc func handleRefresh() {
         let city = UserDefaults.standard.string(forKey: "SelectedCity") ?? ""
         loadData(city: city)
     }
     
+
+    
     
 }
-

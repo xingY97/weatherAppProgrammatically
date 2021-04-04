@@ -18,6 +18,9 @@
 		148B00C0261962B500F25914 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148B00BF261962B500F25914 /* Forecast.swift */; };
 		148B00C72619743900F25914 /* KelvinToCelciusConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148B00C62619743800F25914 /* KelvinToCelciusConverter.swift */; };
 		148B00CC26197AF300F25914 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148B00CB26197AF300F25914 /* APIKey.swift */; };
+		148B00D2261980B200F25914 /* ForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148B00D1261980B200F25914 /* ForecastCell.swift */; };
+		148B00DA26198B4A00F25914 /* Hours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148B00D926198B4A00F25914 /* Hours.swift */; };
+		148B00DD26198F7200F25914 /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148B00DC26198F7200F25914 /* ForecastViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		148B00BF261962B500F25914 /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		148B00C62619743800F25914 /* KelvinToCelciusConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KelvinToCelciusConverter.swift; sourceTree = "<group>"; };
 		148B00CB26197AF300F25914 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		148B00D1261980B200F25914 /* ForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCell.swift; sourceTree = "<group>"; };
+		148B00D926198B4A00F25914 /* Hours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hours.swift; sourceTree = "<group>"; };
+		148B00DC26198F7200F25914 /* ForecastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +79,7 @@
 				148B00B226195D8500F25914 /* Model */,
 				148B00B126195D8100F25914 /* View */,
 				148B00B026195D6F00F25914 /* Controller */,
+				148B00D02619809D00F25914 /* Cell */,
 				148B00A326195D2700F25914 /* Assets.xcassets */,
 				148B00A526195D2700F25914 /* LaunchScreen.storyboard */,
 				148B00A826195D2700F25914 /* Info.plist */,
@@ -83,6 +90,8 @@
 		148B00B026195D6F00F25914 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				148B009E26195D2700F25914 /* WeatherInfoViewController.swift */,
+				148B00DC26198F7200F25914 /* ForecastViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -90,7 +99,6 @@
 		148B00B126195D8100F25914 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				148B009E26195D2700F25914 /* WeatherInfoViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -120,6 +128,15 @@
 				148B00C62619743800F25914 /* KelvinToCelciusConverter.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		148B00D02619809D00F25914 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				148B00D1261980B200F25914 /* ForecastCell.swift */,
+				148B00D926198B4A00F25914 /* Hours.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,15 +208,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				148B00D2261980B200F25914 /* ForecastCell.swift in Sources */,
 				148B009F26195D2700F25914 /* WeatherInfoViewController.swift in Sources */,
 				148B00B526195E1D00F25914 /* NetworkingProtocol.swift in Sources */,
 				148B00C0261962B500F25914 /* Forecast.swift in Sources */,
 				148B009B26195D2700F25914 /* AppDelegate.swift in Sources */,
+				148B00DD26198F7200F25914 /* ForecastViewController.swift in Sources */,
 				148B00B926195EC100F25914 /* NetworkingManager.swift in Sources */,
 				148B00C72619743900F25914 /* KelvinToCelciusConverter.swift in Sources */,
 				148B00BD2619613800F25914 /* WeatherModel.swift in Sources */,
 				148B00CC26197AF300F25914 /* APIKey.swift in Sources */,
 				148B009D26195D2700F25914 /* SceneDelegate.swift in Sources */,
+				148B00DA26198B4A00F25914 /* Hours.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
