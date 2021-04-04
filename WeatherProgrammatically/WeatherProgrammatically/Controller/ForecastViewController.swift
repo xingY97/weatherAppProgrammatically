@@ -18,19 +18,30 @@ class ForecastViewController : UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
         self.title = "Weather for next five days"
-        setupCollectionView()
         
-    }
-    
-    func setupCollectionView () {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: createCompositionalLayout())
         collectionView.register(ForecastCell.self, forCellWithReuseIdentifier: ForecastCell.reuseIdentifier)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .systemBackground
-        collectionView.delegate = self
-        collectionView.dataSource = self
+
+        view.addSubview(collectionView)
+        setupViews()
+        let city = UserDefaults.standard.string(forKey: "SelectedCity") ?? ""
+        print("City Forecast:", city)
+        networkManager.fetchNextFiveWeatherForecast(city: city) { (forecast) in
+            self.forecastData = forecast
+            print("Total Count:", forecast.count)
+            
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+        
     }
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        forecastData = []
+    }
     func setupViews(){
         
         collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8).isActive = true
@@ -65,17 +76,4 @@ class ForecastViewController : UIViewController {
 
 }
 
-extension ForecastViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return forecastData.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ForecastCell.reuseIdentifier, for: indexPath) as! ForecastCell
-        cell.configure(with: forecastData[indexPath.row])
-        return cell
-    }
-    
-    
-}
+

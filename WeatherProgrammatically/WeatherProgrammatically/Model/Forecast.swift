@@ -17,5 +17,5 @@ struct WeatherInfo {
 
 struct ForecastTemperature {
     let weekDay: String?
-    //let hourlyForecast: [WeatherInfo]?
+    
 }

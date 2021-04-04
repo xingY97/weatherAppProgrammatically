@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ForecastCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
+class ForecastCell: UICollectionViewCell, UICollectionViewDelegate {
     
     static var reuseIdentifier: String = "ForecastCell"
     
@@ -38,11 +38,11 @@ class ForecastCell: UICollectionViewCell, UICollectionViewDelegate, UICollection
          contentView.layer.masksToBounds = true
         
         collectionView = UICollectionView(frame: CGRect(x: 100, y: 0, width: (frame.width - 112), height: frame.height), collectionViewLayout: createCompositionalLayout())
-        collectionView.register(HourlyCell.self, forCellWithReuseIdentifier: HourlyCell.reuseIdentifier)
+
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = .systemBackground
         collectionView.delegate = self
-        collectionView.dataSource = self
+
         addSubview(collectionView)
          setupViews()
          layoutViews()
@@ -94,17 +94,6 @@ class ForecastCell: UICollectionViewCell, UICollectionViewDelegate, UICollection
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dailyForecast.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HourlyCell.reuseIdentifier, for: indexPath) as! HourlyCell
-        cell.configure(with: dailyForecast[indexPath.row])
-        return cell
-    }
-    
-    func configure(with item: ForecastTemperature) {
-        weekdaylabel.text = item.weekDay
-        //dailyForecast = item.hourlyForecast ?? []
     }
 
 }

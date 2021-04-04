@@ -25,7 +25,7 @@ class WeatherInfoViewController: UIViewController {
         
     }()
     
-    let currentTime: UILabel = {
+    let currentDay: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "3 April 2021"
@@ -41,7 +41,7 @@ class WeatherInfoViewController: UIViewController {
         label.text = "°C"
         label.textColor = .label
         label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 20, weight: .heavy)
+        label.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
         return label
     }()
     
@@ -52,7 +52,7 @@ class WeatherInfoViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.textColor = .label
-        label.font = UIFont.systemFont(ofSize: 14, weight: .light)
+        label.font = UIFont.systemFont(ofSize: 25, weight: .light)
         return label
     }()
     
@@ -64,15 +64,6 @@ class WeatherInfoViewController: UIViewController {
         img.tintColor = .gray
         return img
     }()
-    
-    let searchField: UITextField = {
-        let searchField = UITextField()
-        searchField.translatesAutoresizingMaskIntoConstraints = false
-        searchField.placeholder = "Enter a city name"
-        searchField.textAlignment = .right
-        return searchField
-    }()
-    
     
     var stackView : UIStackView!
     
@@ -102,7 +93,7 @@ class WeatherInfoViewController: UIViewController {
                 self.currentTemperatureLabel.text = (String(weather.main.temp.kelvinToCelciusConverter()) + "°C")
                 self.currentLocation.text = "\(weather.name ?? "")"
                 self.tempDescription.text = weather.weather[0].description
-                self.currentTime.text = stringDate
+                self.currentDay.text = stringDate
                 
                 UserDefaults.standard.set("\(weather.name ?? "")", forKey: "SelectedCity")
             }
@@ -114,7 +105,7 @@ class WeatherInfoViewController: UIViewController {
         view.addSubview(currentTemperatureLabel)
         view.addSubview(tempSymbol)
         view.addSubview(tempDescription)
-        view.addSubview(currentTime)
+        view.addSubview(currentDay)
 
     }
     
@@ -125,21 +116,21 @@ class WeatherInfoViewController: UIViewController {
         currentLocation.heightAnchor.constraint(equalToConstant: 30).isActive = true
         currentLocation.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         
-        currentTime.topAnchor.constraint(equalTo: currentLocation.bottomAnchor, constant: 10).isActive = true
-        currentTime.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 18).isActive = true
-        currentTime.heightAnchor.constraint(equalToConstant: 10).isActive = true
-        currentTime.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        currentDay.topAnchor.constraint(equalTo: currentLocation.bottomAnchor, constant: 50).isActive = true
+        currentDay.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 18).isActive = true
+        currentDay.heightAnchor.constraint(equalToConstant: 10).isActive = true
+        currentDay.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -18).isActive = true
         
-        currentTemperatureLabel.topAnchor.constraint(equalTo: currentTime.bottomAnchor, constant: 10).isActive = true
+        currentTemperatureLabel.topAnchor.constraint(equalTo: currentDay.bottomAnchor, constant: 10).isActive = true
         currentTemperatureLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 18).isActive = true
         currentTemperatureLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         
-        tempSymbol.topAnchor.constraint(equalTo: currentTemperatureLabel.bottomAnchor).isActive = true
+        tempSymbol.topAnchor.constraint(equalTo: currentTemperatureLabel.bottomAnchor, constant: 50).isActive = true
         tempSymbol.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 18).isActive = true
         tempSymbol.heightAnchor.constraint(equalToConstant: 50).isActive = true
         tempSymbol.widthAnchor.constraint(equalToConstant: 50).isActive = true
         
-        tempDescription.topAnchor.constraint(equalTo: currentTemperatureLabel.bottomAnchor, constant: 12.5).isActive = true
+        tempDescription.topAnchor.constraint(equalTo: currentTemperatureLabel.bottomAnchor, constant: 50).isActive = true
         tempDescription.leadingAnchor.constraint(equalTo: tempSymbol.trailingAnchor, constant: 8).isActive = true
         tempDescription.heightAnchor.constraint(equalToConstant: 20).isActive = true
         tempDescription.widthAnchor.constraint(equalToConstant: 250).isActive = true
