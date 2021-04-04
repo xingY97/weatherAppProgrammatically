@@ -20,10 +20,19 @@ Run:
 
 <h4>How to Use</h4>
 
-* press or click on magnifying glass on the top right corner 
+* Press or click on magnifying glass on the top right corner 
+![1617550042889](https://user-images.githubusercontent.com/45300300/113513750-27e62200-9539-11eb-86b7-fa67a5b4aceb.jpg)
+
+
 * Enter a city Name in alert box
-* press or click Search
+
+![Screen Shot 2021-04-04 at 11 30 59 AM](https://user-images.githubusercontent.com/45300300/113513787-451af080-9539-11eb-88f8-1ca2cbdb5c5a.png)
+
+* Press or click Search
+
+
 
 
 *Main View*
+
 ![Screen Shot 2021-04-04 at 11 17 45 AM](https://user-images.githubusercontent.com/45300300/113513370-6975cd80-9537-11eb-93cc-fa9dfa9008f2.png)
